@@ -1,0 +1,8 @@
+[user]
+    name = Josh Stobbs
+    email = hello@joshstobbs.com
+    username = joshstobbs
+[init]
+    defaultBranch = main
+[core]
+    editor = nvim
