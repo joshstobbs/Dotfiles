@@ -1,10 +1,21 @@
-- clean: ['~']
-
+- defaults:
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+    link:
+      relink: true
+- clean: ["~"]
+- brewfile:
+  file: config/brew/Brewfile
+  stdout: true
+  stderr: true
+  include: ["tap", "brew", "cask", "mas"]
 - link:
-    ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-    ~/.zshrc: zshrc
-
-
+    ~/.config/fish: config/fish
+    ~/.config/nvim: config/nvim
+    ~/.config/skhd: config/skhd
+    ~/.config/wezterm: config/wezterm
+    ~/.config/yabai: config/yabai
+    ~/.config/starship.toml: config/starship/starship.toml
+    ~/.gitconfig: config/git/gitconfig
