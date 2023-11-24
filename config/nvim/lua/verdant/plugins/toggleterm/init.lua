@@ -6,6 +6,7 @@ return {
 			open_mapping = "<leader>\\",
 			insert_mappings = true,
 			terminal_mappings = true,
+			shade_terminals = false,
 		})
 	end,
 }
