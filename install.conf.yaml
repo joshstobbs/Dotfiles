@@ -1,4 +1,8 @@
 - defaults:
+    brewfile:
+      stdout: false
+      stderr: false
+      include: ['tap', 'brew', 'cask', 'mas']
     shell:
       stdin: true
       stdout: true
@@ -6,11 +10,6 @@
     link:
       relink: true
 - clean: ["~"]
-- brewfile:
-  file: config/brew/Brewfile
-  stdout: true
-  stderr: true
-  include: ["tap", "brew", "cask", "mas"]
 - link:
     ~/.config/fish: config/fish
     ~/.config/nvim: config/nvim
@@ -19,3 +18,5 @@
     ~/.config/yabai: config/yabai
     ~/.config/starship.toml: config/starship/starship.toml
     ~/.gitconfig: config/git/gitconfig
+- shell:
+  - [brew bundle --file=config/brew/Brewfile --mas]
