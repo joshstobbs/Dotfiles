@@ -117,7 +117,7 @@ local function tab_title(tab)
 		return title
 	end
 
-	return string.gsub(tab.active_pane.current_working_dir, "(.*[/\\])(.*)", "%2")
+	return string.gsub(tab.active_pane.current_working_dir.file_path, "(.*[/\\])(.*)", "%2")
 end
 
 local process_icons = {

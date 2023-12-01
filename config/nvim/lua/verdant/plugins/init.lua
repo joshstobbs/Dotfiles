@@ -48,5 +48,5 @@ require("lazy").setup({
 	require("verdant.plugins.toggleterm"),
 	require("verdant.plugins.gitsigns"),
 	require("verdant.plugins.marks"),
-	require("verdant.plugins.spider"),
+	require("verdant.plugins.nvim-spider"),
 })

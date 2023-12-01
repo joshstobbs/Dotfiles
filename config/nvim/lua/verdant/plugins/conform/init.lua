@@ -4,6 +4,9 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 				lua = { "stylua" },
 				php = { "pint" },
 				svelte = { "prettierd" },

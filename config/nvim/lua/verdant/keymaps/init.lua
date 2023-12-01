@@ -3,6 +3,7 @@ local flash = require("verdant.keymaps.flash")
 local smart_splits = require("verdant.keymaps.smart-splits")
 local lsp = require("verdant.keymaps.lsp")
 local gitsigns = require("verdant.keymaps.gitsigns")
+local spider = require("verdant.keymaps.spider")
 
 return {
 	default = {
@@ -11,6 +12,7 @@ return {
 		smart_splits,
 		lsp,
 		gitsigns,
+		spider,
 		-- { "[hotkey]", "[command]", description = "", mode = { "n", "x" } },
 		{ "<leader><tab>", "<C-^>", description = "Switch to previous file", mode = { "n", "x", "v" } },
 		{ "<leader>q", ":q<CR>", description = "Quit files", mode = { "n", "x", "v" } },
@@ -86,20 +88,21 @@ return {
 			mode = { "n" },
 		},
 
-		-- {
-		-- 	"<leader>\\",
-		-- 	"<CMD>ToggleTerm<CR>",
-		-- 	-- { n = "<CMD>FloatermToggle<CR>", t = "<C-\\><C-n><CMD>FloatermToggle<CR>" },
-		-- 	description = "Toggle terminal",
-		-- 	mode = { "n", "i", "v" },
-		-- },
-
 		{
 			"<ESC>",
 			"<C-\\><C-n>",
 			description = "Leave insert mode in terminal",
 			mode = { "t" },
 		},
+
+		{
+			"<leader>lm",
+			":!php artisan make:",
+			description = "Laravel make me...",
+			mode = { "n" },
+		},
+
+		{ "<D-o>", "<cmd>NvimTreeFindFileToggle<CR>", description = "Show file tree", mode = { "n", "x", "v" }, opts },
 
 		-- look for adding one shiftwidth
 		-- look for removing one shiftwidth

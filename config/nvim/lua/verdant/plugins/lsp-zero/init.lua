@@ -78,6 +78,20 @@ return {
 			},
 			handlers = {
 				lsp_zero.default_setup,
+				tailwindcss = function()
+					require("lspconfig").tailwindcss.setup({
+						settings = {
+							tailwindCSS = {
+								experimental = {
+									classRegex = {
+										{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+										{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+									},
+								},
+							},
+						},
+					})
+				end,
 			},
 		})
 

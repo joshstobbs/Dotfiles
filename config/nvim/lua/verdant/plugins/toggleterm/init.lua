@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			open_mapping = "<leader>\\",
-			insert_mappings = true,
+			insert_mappings = false,
 			terminal_mappings = true,
 			shade_terminals = false,
 		})
