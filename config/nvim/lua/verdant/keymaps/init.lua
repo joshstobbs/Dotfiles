@@ -19,6 +19,7 @@ return {
 		{ "<leader>w", ":w<CR>", description = "Write file", mode = { "n", "x", "v" } },
 
 		{ "<C-e>", "<cmd>NvimTreeFindFileToggle<CR>", description = "Show file tree", mode = { "n", "x", "v" }, opts },
+
 		{
 			"<leader>e",
 			"<cmd>NvimTreeFindFileToggle<CR>",
