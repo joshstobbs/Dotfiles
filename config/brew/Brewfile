@@ -1,64 +1,65 @@
-tap 'koekeishiya/formulae'
-
-brew 'bat'
-brew 'bob'
-brew 'eza'
-brew 'fish'
-brew 'fisher'
-brew 'fzf'
-brew 'dotbot'
-brew 'gh'
-brew 'git'
-brew 'jq'
-brew 'mas'
-brew 'neovim', args: ['HEAD']
-brew 'rm-improved'
-brew 'ripgrep'
-brew 'rtx'
-brew 'starship'
-brew 'tmux'
-brew 'zoxide'
-brew 'koekeishiya/formulae/yabai'
-brew 'koekeishiya/formulae/skhd'
-
-cask '1password'
-cask 'appcleaner'
-cask 'adguard'
-cask 'adobe-acrobat-reader'
-cask 'arc'
-cask 'backblaze'
-cask 'beeper'
-cask 'cron'
-cask 'cyberghost-vpn'
-cask 'dbngin'
-cask 'discord'
-cask 'figma'
-cask 'flux'
-cask 'google-drive'
-cask 'hammerspoon'
-cask 'herd'
-cask 'helo'
-cask 'iterm2'
-cask 'kindavim'
-cask 'kitty'
-cask 'logi-options-plus'
-cask 'pocket-casts'
-cask 'qmk-toolbox'
-cask 'ray'
-cask 'raycast'
-cask 'setapp'
-cask 'scrolla'
-cask 'spotify'
-cask 'the-unarchiver'
-cask 'tinkerwell'
-cask 'tower'
-cask 'visual-studio-code'
-cask 'wezterm'
-cask 'wooshy'
-
-mas 'Darkroom', id: 953286746
-mas 'rcmd', id: 1596283165
-mas 'Reeder', id: 1568924476
-mas 'Spark', id: 1176895641
-mas 'Things', id: 904280696
-
+tap "homebrew/bundle"
+tap "homebrew/cask-versions"
+tap "homebrew/services"
+tap "koekeishiya/formulae"
+brew "bat"
+brew "bob"
+brew "dotbot"
+brew "eza"
+brew "fish"
+brew "fisher"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "jq"
+brew "mas"
+brew "neovim", args: ["HEAD"]
+brew "ripgrep"
+brew "rm-improved"
+brew "rtx"
+brew "starship"
+brew "tmux"
+brew "zoxide"
+brew "koekeishiya/formulae/skhd"
+brew "koekeishiya/formulae/yabai"
+cask "1password"
+cask "1password-cli"
+cask "adguard"
+cask "adobe-acrobat-reader"
+cask "appcleaner"
+cask "arc"
+cask "backblaze"
+cask "beeper"
+cask "clop"
+cask "cron"
+cask "cyberghost-vpn"
+cask "dbngin"
+cask "discord"
+cask "figma"
+cask "flux"
+cask "google-drive"
+cask "hammerspoon"
+cask "helo"
+cask "herd"
+cask "iterm2"
+cask "kindavim"
+cask "kitty"
+cask "logi-options-plus"
+cask "pocket-casts"
+cask "qmk-toolbox"
+cask "ray"
+cask "raycast"
+cask "scrolla"
+cask "setapp"
+cask "spotify"
+cask "the-unarchiver"
+cask "tinkerwell"
+cask "tower"
+cask "visual-studio-code"
+cask "wezterm-nightly"
+cask "wooshy"
+mas "Darkroom", id: 953286746
+mas "Mela", id: 1568924476
+mas "rcmd", id: 1596283165
+mas "Spark", id: 1176895641
+mas "Things", id: 904280696

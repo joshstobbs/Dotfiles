@@ -1,4 +1,5 @@
 local telescope = require("verdant.keymaps.telescope")
+local fzf_lua = require("verdant.keymaps.fzf-lua")
 local flash = require("verdant.keymaps.flash")
 local smart_splits = require("verdant.keymaps.smart-splits")
 local lsp = require("verdant.keymaps.lsp")
@@ -8,6 +9,7 @@ local spider = require("verdant.keymaps.spider")
 return {
 	default = {
 		telescope,
+		fzf_lua,
 		flash,
 		smart_splits,
 		lsp,
@@ -104,6 +106,12 @@ return {
 		},
 
 		{ "<D-o>", "<cmd>NvimTreeFindFileToggle<CR>", description = "Show file tree", mode = { "n", "x", "v" }, opts },
+		{
+			"<leader>R",
+			"<cmd>e!<CR>",
+			description = "Refresh file",
+			mode = { "n", "x", "v" },
+		},
 
 		-- look for adding one shiftwidth
 		-- look for removing one shiftwidth
