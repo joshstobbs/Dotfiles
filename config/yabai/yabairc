@@ -3,103 +3,29 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
+# Restore default application layering
+yabai -m rule --add app=".*" layer=normal
+
 # Default layout (bsp, stack, or float)
 yabai -m config layout stack
 
+# Disable screen switching animation
 yabai -m config window_animation_duration      0.0
-
-# Disable window shadows
-# yabai -m config window_shadow off
-
-# Setup spaces
-yabai -m space 1 --label web
-yabai -m space 2 --label terminal # terminals (iTerm, kitty, Wezterm, etc...) 
-yabai -m space 3 --label messages # messaging apps (Slack, Beeper, Discord, etc...)
-yabai -m space 4 --label tasks # task management apps (Things*, Fantastical, Spark, etc...)
-yabai -m space 5 --label media # media apps (Spotify, Pocketcasts, etc...)
-yabai -m space 6 --label notes # notes apps (Notes, Bear, etc...)
-yabai -m space 7 --label other # everything else...
-
-
-# New window spawns to the right if vertical split, or bottom if horizontal split
-yabai -m config window_placement second_child
 
 # Padding
 yabai -m config top_padding 24
+yabai -m config right_padding 24
 yabai -m config bottom_padding 24
 yabai -m config left_padding 24
-yabai -m config right_padding 24
 yabai -m config window_gap 12
 
-# Center mouse on window with focus
-yabai -m config mouse_follows_focus off
-
-# Modifier for clicking and dragging with mouse
+# Mouse mode
+yabai -m config mouse_follows_focus on
 yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move # modifier + left-click drag to move window
+yabai -m config mouse_action2 resize # modifier + right-click drag to resize window
+yabai -m mouse_drop_action swap # swap window when dropped on center, split when dropped on edge
 
-# Set modifier + left-click drag to move window
-yabai -m config mouse_action1 move
-
-# Set modifier + right-click drag to resize window
-yabai -m config mouse_action2 resize
-
-# When window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
-
-# Space config
-
-# yabai -m config --space code layout stack
-# yabai -m config --space messages layout stack
-# yabai -m config --space tasks layout stack
-# yabai -m config --space media layout stack
-
-# App rules
-
-## Assign
-
-# Ignore Little Arc
-yabai -m rule --add app="^Notification Cent.*$" layer=above
-# Set all windows layer to normal
-yabai -m signal --add event=application_front_switched action="yabai -m window --layer normal"
-
-yabai -m rule --add app=".*" layer=normal
-
-yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off # arc pip
-yabai -m rule --add label="Little Arc" app="^Arc$" title="^Space.*" manage=off # arc little arc
-
-# yabai -m rule --add app='^Arc$' title!='^Space.*$' space=^web
-# yabai -m rule --add app="^Arc$" space=^web
-yabai -m rule --add app="^Safari$" space=^web
-yabai -m rule --add app="^Firefox$" space=^web
-yabai -m rule --add app="^Chrome$" space=^web
-
-yabai -m rule --add app="^iTerm2$" space=^term
-yabai -m rule --add app="^kitty$" space=^term
-yabai -m rule --add app="^WezTerm$" space=^terminal
-
-yabai -m rule --add app="^Code$" space=^code
-yabai -m rule --add app="^Tower$" space=^code
-yabai -m rule --add app="^TablePlus$" space=^code
-
-yabai -m rule --add app="^Slack$" space=^messages
-yabai -m rule --add app="^Beeper$" space=^messages
-
-yabai -m rule --add app="^Fantastical$" space=^tasks
-yabai -m rule --add app="^Spark$" space=^tasks
-
-yabai -m rule --add app="^Spotify$" space=^media
-yabai -m rule --add app="^Pocket Casts$" space=^media
-
-yabai -m rule --add app="^Notes$" space=^notes
-yabai -m rule --add app="^Bear$" space=^notes
-
-## Ignore
-# yabai -m rule --add app="^Arc$" title="^Space.*$" manage=off
-# yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Finder$" manage=off layer=below
-# yabai -m rule --add app="^Calculator$" manage=off
-# yabai -m rule --add app="^Karabiner-Elements$" manage=off
-# yabai -m rule --add app="^Things$" manage=off
-# yabai -m rule --add app="^1Password$" manage=off
-# yabai -m rule --add app="^Ray$" sticky=on layer=below manage=off
-
+# Ignore apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
