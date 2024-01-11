@@ -2,7 +2,7 @@
 # meh for internal window management, focus, placement within space, sizing
 
 # toggle space layout
-# meh + tab : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
+meh - tab : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
 
 shift - space : open -g wooshy://toggleTheInput
 
@@ -11,6 +11,12 @@ meh - h : yabai -m window --focus west
 meh - j : yabai -m window --focus south
 meh - k : yabai -m window --focus north
 meh - l : yabai -m window --focus east
+
+# swap windows
+hyper - j : yabai -m window --swap south
+hyper - k : yabai -m window --swap north
+hyper - h : yabai -m window --swap west
+hyper - l : yabai -m window --swap east
 
 # change focus between external displays (left and right)
 meh - s : yabai -m display --focus west
@@ -38,15 +44,20 @@ meh - e : yabai -m space --balance
 hyper - s : yabai -m window --display west; yabai -m display --focus west;
 hyper - g : yabai -m window --display east; yabai -m display --focus east;
 
-# swap windows
-hyper - j : yabai -m window --swap south
-hyper - k : yabai -m window --swap north
-hyper - h : yabai -m window --swap west
-hyper - l : yabai -m window --swap east
-
 #move window to prev and next space
 hyper - p : yabai -m window --space prev;
 hyper - n : yabai -m window --space next;
+
+# focus spaces
+meh - 1 : yabai -m space --focus 1;
+meh - 2 : yabai -m space --focus 2;
+meh - 3 : yabai -m space --focus 3;
+meh - 4 : yabai -m space --focus 4;
+meh - 5 : yabai -m space --focus 5;
+meh - 6 : yabai -m space --focus 6;
+meh - 7 : yabai -m space --focus 7;
+meh - 8 : yabai -m space --focus 8;
+meh - 9 : yabai -m space --focus 9;
 
 # move window to space
 hyper - 1 : yabai -m window --space 1;
@@ -56,4 +67,9 @@ hyper - 4 : yabai -m window --space 4;
 hyper - 5 : yabai -m window --space 5;
 hyper - 6 : yabai -m window --space 6;
 hyper - 7 : yabai -m window --space 7;
+hyper - 8 : yabai -m window --space 8;
+hyper - 9 : yabai -m window --space 9;
 
+# PIP mode
+# update to check if layer is above and set to normal 
+meh - p : yabai -m window --toggle sticky --toggle pip --layer normal
