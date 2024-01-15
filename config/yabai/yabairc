@@ -16,22 +16,6 @@ yabai -m config layout bsp
 # Disable screen switching animation
 yabai -m config window_animation_duration      0.0
 
-function setup_space {
-  local idx="$1"
-  local name="$2"
-  local layout="${3:-bsp}"
-  local display="${4:-1}"
-  local space=
-  echo "setup space $idx : $name on display $display"
-
-  space=$(yabai -m query --spaces --space "$idx")
-  if [ -z "$space" ]; then
-    yabai -m space --create
-  fi
-
-  yabai -m space "$idx" --label "$name" --layout "$layout" --display "$display"
-}
-
 # Spaces setup
 yabai -m space 1 --label terminal
 yabai -m space web --display 1
@@ -72,23 +56,6 @@ yabai -m space notes --layout stack
 yabai -m space email --layout stack
 yabai -m space design --layout stack
 yabai -m space dev --layout stack
-
-# yabai -m space --create
-# yabai -m space 8 --label design
-# yabai -m space design --display 2
-
-# yabai -m space web --display 2
-# setup_space 1 web
-# setup_space 2 terminal
-# setup_space 3 social stack
-# setup_space 4 notes stack
-# setup_space 5 tasks stack
-# setup_space 6 email stack
-# setup_space 7 design stack
-# setup_space 8 media stack
-# setup_space 9 foo
-# setup_space 10 bar
-# setup_space 11 baz
 
 # Assign apps to space
 yabai -m rule --add app="^Safari|Arc$" space=web
