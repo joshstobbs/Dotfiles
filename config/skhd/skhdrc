@@ -1,6 +1,3 @@
-# hyper for window management across spaces + display
-# meh for internal window management, focus, placement within space, sizing
-
 # Open Wooshy input
 shift - space : open -g wooshy://toggleTheInput
 

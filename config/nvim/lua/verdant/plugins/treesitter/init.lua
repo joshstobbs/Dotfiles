@@ -6,16 +6,7 @@ return {
 	end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		{
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			opts = {
-				custom_calculation = function(node, language_tree)
-					if vim.bo.filetype == "blade" and language_tree._lang ~= "javascript" then
-						return "{{-- %s --}}"
-					end
-				end,
-			},
-		},
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -60,7 +51,6 @@ return {
 			auto_install = true,
 			highlight = { enable = true },
 			indent = { enable = true, disable = { "yaml" } },
-			context_commentstring = { enable = true },
 			autotag = { enable = true },
 			textobjects = {
 				select = {
@@ -74,6 +64,14 @@ return {
 					},
 				},
 			},
+		})
+
+		require("ts_context_commentstring").setup({
+			custom_calculation = function(node, language_tree)
+				if vim.bo.filetype == "blade" and language_tree._lang ~= "javascript" then
+					return "{{-- %s --}}"
+				end
+			end,
 		})
 
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
