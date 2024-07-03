@@ -52,7 +52,11 @@ return {
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
-					local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+					local kind = require("lspkind").cmp_format({
+						before = require("tailwind-tools.cmp").lspkind_format,
+						mode = "symbol_text",
+						maxwidth = 50,
+					})(entry, vim_item)
 					local strings = vim.split(kind.kind, "%s", { triempty = true })
 					kind.kind = " " .. (strings[1] or "") .. " "
 					kind.menu = "     (" .. (strings[2] or "") .. ")"
@@ -78,6 +82,19 @@ return {
 			},
 			handlers = {
 				lsp_zero.default_setup,
+				volar = function()
+					require("lspconfig").volar.setup({
+						filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+						init_options = {
+							vue = {
+								hybridMode = false,
+							},
+							typescript = {
+								tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+							},
+						},
+					})
+				end,
 				tailwindcss = function()
 					require("lspconfig").tailwindcss.setup({
 						settings = {
@@ -86,6 +103,7 @@ return {
 									classRegex = {
 										{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
 										{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+										{ "tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
 									},
 								},
 							},

@@ -17,6 +17,14 @@ local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
 
+local function find_vim_pane(tab)
+	for _, pane in ipairs(tab:panes()) do
+		if is_vim(pane) then
+			return pane
+		end
+	end
+end
+
 local direction_keys = {
 	Left = "h",
 	Down = "j",
@@ -68,10 +76,34 @@ config.keys = {
 
 	-- Pane Management
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+
+	{
+		key = "Enter",
+		mods = "CMD",
+		action = wezterm.action_callback(function(_, pane)
+			local tab = pane:tab()
+			local panes = tab:panes_with_info()
+			if #panes == 1 then
+				pane:split({
+					direction = "Bottom",
+				})
+			elseif not panes[1].is_zoomed then
+				panes[1].pane:activate()
+				tab:set_zoomed(true)
+			elseif panes[1].is_zoomed then
+				tab:set_zoomed(false)
+				panes[2].pane:activate()
+			end
+		end),
+	},
 }
 
 -- Font
-config.font = wezterm.font_with_fallback({ "MonoLisa", { family = "Symbols Nerd Font Mono", scale = 0.75 } })
+config.font = wezterm.font_with_fallback({
+	-- "Berkeley Mono Variable",
+	"MonoLisa",
+	{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+})
 config.font_size = 17.0
 config.line_height = 1.85
 config.warn_about_missing_glyphs = false

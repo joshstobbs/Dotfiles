@@ -32,6 +32,7 @@ return {
 			git = { ignore = false },
 			filters = {
 				dotfiles = false,
+				custom = { "^\\.DS_Store" },
 			},
 			actions = {
 				change_dir = {

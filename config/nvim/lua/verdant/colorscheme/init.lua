@@ -8,6 +8,9 @@ return {
 		require("ayu").setup({
 			mirage = true,
 			overrides = {
+				-- FzfLuaNormal = {},
+				FzfLuaBorder = { fg = colors.comment },
+
 				IblIndent = { fg = "#262D39" },
 
 				CursorWord = { bg = "NONE", underline = true },

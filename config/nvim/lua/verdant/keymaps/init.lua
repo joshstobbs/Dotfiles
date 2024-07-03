@@ -3,8 +3,11 @@ local fzf_lua = require("verdant.keymaps.fzf-lua")
 local flash = require("verdant.keymaps.flash")
 local smart_splits = require("verdant.keymaps.smart-splits")
 local lsp = require("verdant.keymaps.lsp")
+local neotest = require("verdant.keymaps.neotest")
+local neogit = require("verdant.keymaps.neogit")
 local gitsigns = require("verdant.keymaps.gitsigns")
 local spider = require("verdant.keymaps.spider")
+local multiple_cursors = require("verdant.keymaps.multiple-cursors")
 
 return {
 	default = {
@@ -13,14 +16,38 @@ return {
 		flash,
 		smart_splits,
 		lsp,
+		neotest,
+		neogit,
 		gitsigns,
 		spider,
+		-- multiple_cursors,
 		-- { "[hotkey]", "[command]", description = "", mode = { "n", "x" } },
+
+		{
+			"<D-l>",
+			function()
+				require("edgy").open("bottom")
+			end,
+			description = "Open left panel",
+			mode = { "n", "x", "v" },
+		},
 		{ "<leader><tab>", "<C-^>", description = "Switch to previous file", mode = { "n", "x", "v" } },
 		{ "<leader>q", ":q<CR>", description = "Quit files", mode = { "n", "x", "v" } },
 		{ "<leader>w", ":w<CR>", description = "Write file", mode = { "n", "x", "v" } },
 
 		{ "<C-e>", "<cmd>NvimTreeFindFileToggle<CR>", description = "Show file tree", mode = { "n", "x", "v" }, opts },
+
+		{
+			"<leader>]",
+			"<cmd>BufSurfForward<CR>",
+			description = "Forward",
+		},
+
+		{
+			"<leader>[",
+			"<cmd>BufSurfBack<CR>",
+			description = "Forward",
+		},
 
 		{
 			"<leader>e",

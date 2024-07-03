@@ -4,9 +4,11 @@ return {
 	icon = "🐱",
 	keymaps = {
 		{
-			"<leader>zf",
+			"<D-z>",
 			function()
-				require("fzf-lua").files()
+				require("fzf-lua").files({
+					fd_opts = "--color never --type f --hidden --follow -E=node_modules -E=vendor",
+				})
 			end,
 			description = "Search for files",
 			mode = { "n", "v" },

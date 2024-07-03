@@ -3,17 +3,18 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
-				javascript = { "prettierd" },
-				javascriptreact = { "prettierd" },
-				typescript = { "prettierd" },
-				typescriptreact = { "prettierd" },
+				javascript = { "rustywind", "prettierd" },
+				javascriptreact = { "rustywind", "prettierd" },
+				typescript = { "rustywind", "prettierd" },
+				typescriptreact = { "rustywind", "prettierd" },
 				lua = { "stylua" },
 				php = { "pint" },
-				svelte = { "prettierd" },
+				svelte = { "rustywind", "prettierd" },
+				vue = { "rustywind", "prettierd" },
 			},
-			format_on_save = { lsp_fallback = true, timeout_ms = 500 },
-			format_after_save = { lsp_fallback = true },
-			notify_on_error = true,
+			format_on_save = { lsp_fallback = true, timeout_ms = 1000 },
+			format_after_save = { lsp_fallback = true, timeout_ms = 1000 },
+			notify_on_error = false,
 		})
 	end,
 }

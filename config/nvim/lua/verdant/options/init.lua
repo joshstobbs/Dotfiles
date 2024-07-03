@@ -18,6 +18,7 @@ opt.foldmethod = "expr"
 
 opt.showcmdloc = "statusline"
 
+opt.showtabline = 0
 opt.cursorline = true
 cmd("set iskeyword+=-")
 cmd([[au BufEnter * set fo-=c fo-=r fo-=o]]) -- stop comments from starting on new lines
@@ -27,6 +28,7 @@ opt.smartcase = true
 opt.swapfile = false
 opt.cmdheight = 0
 opt.laststatus = 3
+opt.splitkeep = "screen"
 opt.termguicolors = true
 opt.expandtab = true
 opt.shiftwidth = 4
